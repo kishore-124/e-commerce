@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand">Online Store</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="/" style="text-decoration: none;font-size: 15px; font-weight: 200">Products</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/carts" style="text-decoration: none;font-size: 15px; font-weight: 200">Cart</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/contacts" style="text-decoration: none;font-size: 15px; font-weight: 200">Contact</a>
+        </li>
+      </ul>
+      <span class="navbar-text">
+       <% if current_customer.present? %>
+        <span style="text-decoration: none;font-size: 15px; font-weight: 200">Hello <%= current_customer.name %></span>
+          <a class="btn btn-sm btn-outline-success" style="text-decoration: none;" href="/customers/sign_out" data-method="delete">LogOut</a>
+        <% else %>
+        <a class="btn btn-sm btn-outline-success" style="text-decoration: none;" href="/customers/sign_in">Login</a>
+        <% end %>
+    </span>
+    </div>
+  </div>
+</nav>

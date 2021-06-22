@@ -1,0 +1,44 @@
+<div class="row">
+
+    <div class="card col-lg-2 mb-2 mt-3" style="width: 80%; margin-left: 9.5%; padding: 0.5rem">
+      <a href="/" class="btn-cont-shopping" style="text-decoration: none; padding-top: 0.3rem; font-size: 17px">Continue Shopping</a>
+      <div style="font-weight:200; font-size: 20px; margin-top: 1rem">
+        <label style="margin-right: 25%">Items:  <%= @items %></label>
+        <label>Total:  £<%= @total_amount %></label>
+        <a href="/checkouts" class="btn-checkout" style="text-decoration: none; padding-top: 0.3rem; font-size: 17px; float: right">Checkout</a>
+      </div>
+    </div>
+</div>
+<div class="row">
+  <div class="card col-lg-2 mb-2 mt-3" style="width: 80%; display: flex; margin-left: 9.5%">
+    <table>
+      <thead>
+      <th style="background-color: white"></th>
+      <th style="background-color: white">Item</th>
+      <th style="background-color: white">Price</th>
+      <th style="background-color: white">Quantity</th>
+      <th style="background-color: white">Total</th>
+      </thead>
+      <tbody>
+      <% @orders&.each do |order| %>
+        <tr style="border-top: 1px solid rgba(0,0,0,.125);">
+          <td style="width: 30%"><img src="<%= order.line_item.product.image_url %>" style="width: 30%; height: 100px;" /></td>
+          <td><%= order.line_item.product.name %></td>
+          <td><%= order.line_item.product.price %></td>
+          <td><%= order.line_item.quantity %></td>
+          <td>£<%= (order.line_item.product.price * order.line_item.quantity).to_f %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+
+
+
+
+
+
+

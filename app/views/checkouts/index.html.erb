@@ -1,0 +1,62 @@
+<div class="row" style="display: flex; height: 75%">
+
+  <div class="card col-lg-2 mb-2 mt-3" style="width: 45%; margin-left: 2.5%; padding: 0.75rem;">
+    <div style="display: flex">
+      <input class="c-input" style="margin-right: 2rem" type="text" value="<%= current_customer.name %>"/>
+      <input class="c-input" type="text" value="<%= current_customer.email %>"/>
+    </div>
+
+    <hr>
+    <div style="display: flex">
+      <input class="c-input" style="margin-right: 2rem" type="text" placeholder="Address.."/>
+      <input class="c-input" type="text" placeholder="City.."/>
+    </div>
+    <div style="display: flex; margin-top: 1.5rem">
+      <input class="c-input" style="margin-right: 2rem" type="text" placeholder="State.."/>
+      <input class="c-input" type="text" placeholder="Zip code.."/>
+    </div>
+    <div style="font-weight:200; font-size: 20px; margin-top: 1rem">
+      <label> Billing Information:</label>
+    </div>
+    <hr>
+    <div style="font-weight:200; font-size: 15px; display: flex; margin-bottom: 1rem">
+      <label style="margin-top: 0.2rem; margin-right: 0.5rem"> Select Card Type:</label>
+
+    <select class="c-input" style="margin-right: 2rem">
+    <option class="c-input">Credit Card</option>
+    <option class="c-input">Debit Card</option>
+    </select>
+      <input class="c-input" type="text" placeholder="Card Number"/>
+    </div>
+
+    <a href="/pay" class="btn btn-sm btn-outline-success">Pay</a>
+  </div>
+
+
+  <div class="card col-lg-2 mb-2 mt-3" style="width: 45%; margin-left: 2.5%; padding: 0.75rem;">
+    <a href="/carts" class="btn-back-cart" style="text-decoration: none; padding-top: 0.3rem; font-size: 17px; float: right">Back to Cart</a>
+    <label style="font-weight: 300; margin-top: 0.5rem; font-size: 20px">Order Summary</label>
+    <div class="card-body">
+      <table>
+        <tbody>
+        <% @orders&.each do |order| %>
+          <tr style="height: 40%">
+            <td><img src="<%= order.line_item.product.image_url %>" style="width: 50px; height: 50px"/></td>
+            <td><%= order.line_item.product.price %></td>
+            <td><%= order.line_item.quantity %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div style="font-weight:200; font-size: 20px; margin-top: 1rem">
+      <label style="margin-right: 25%">Items:  <%= @items %></label>
+      <label>Total:  £<%= @total_amount %></label>
+    </div>
+  </div>
+</div>
+
+
+
+
+
