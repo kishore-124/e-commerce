@@ -1,4 +1,5 @@
 class CartsController < ApplicationController
+  
   def index
     @orders = current_customer.orders.where(complete: false)
     sum = 0
