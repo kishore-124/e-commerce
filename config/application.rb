@@ -36,5 +36,6 @@ module ECommerce
     config.generators.system_tests = nil
 
     config.active_job.queue_adapter = :async
+    config.active_storage.service = :local
   end
 end
